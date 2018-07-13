@@ -1,0 +1,15 @@
+request:
+  method: POST
+  url: /api/v1/customers
+  body:
+    name: "Act"
+    email: "act@act.com"
+  headers:
+    Content-Type: application/json
+response:
+  status: 201
+  body:
+    name: "Act"
+    email: "act@act.com"
+  headers:
+    Content-Type: application/json;charset=UTF-8

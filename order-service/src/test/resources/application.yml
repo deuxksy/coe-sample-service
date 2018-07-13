@@ -1,0 +1,21 @@
+spring:
+  security:
+    user:
+      name: test
+      password: test123
+  application:
+    name: order-service
+  cloud:
+    config:
+      discovery:
+        enabled: false
+  sleuth:
+    feign:
+      enabled: false
+coe:
+  application:
+    customer-service: CUSTOMER-SERVICE
+
+stubrunner:
+  ids: "org.coe.msa:customer-service:+:stubs:6060"
+  work-offline: true
