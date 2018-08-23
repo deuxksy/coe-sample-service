@@ -1,12 +1,13 @@
 package com.sds.act.coe.order.web.rest;
 
-import com.sds.act.coe.order.domain.Customer;
-import com.sds.act.coe.order.service.OrderService;
+import com.sds.act.coe.api.user.User;
+import com.sds.act.coe.order.api.UserClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,22 +21,21 @@ public class OrderController {
 
     private Logger logger = LoggerFactory.getLogger(OrderController.class);
 
-    private OrderService orderService;
+    private UserClient userClient;
 
 
-    public OrderController(@Autowired OrderService orderService) {
-        this.orderService = orderService;
+    public OrderController(@Autowired UserClient userClient) {
+        this.userClient = userClient;
     }
 
     @GetMapping("/customers")
-    public List<Customer> getAll() {
-        return orderService.getAllCustomer();
+    public List<User> getAll() {
+        return userClient.search();
     }
 
-    @GetMapping("/customer")
-    public Customer getCustomer() {
+    @GetMapping("/customers/{id}")
+    public User getCustomer(@PathVariable(name = "id") int id) {
         logger.info("called getCustomer");
-        Customer customer = new Customer(1, "park", "11@gmail.com");
-        return customer;
+        return userClient.get(id);
     }
 }

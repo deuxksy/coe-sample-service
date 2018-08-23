@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+
+package com.sds.act.coe.api.user;
+
+message UserSearchRequest {
+    int32 userId = 1;
+}
+
+message User {
+    int32 userId = 1;
+    string name = 2;
+    string email = 3;
+}
+
+message UserSearchResponse {
+    repeated User user = 1;
+}
+
+service UserService {
+    rpc searchUser (UserSearchRequest) returns (UserSearchResponse);
+    rpc getOne (UserSearchRequest) returns (User);
+}
