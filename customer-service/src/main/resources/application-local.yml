@@ -6,8 +6,6 @@
 # jps : jpa setup
 #
 spring:
-  application:
-    name: customer-service-local
   rabbitmq:
     host: ${RABBITMQ_SERVER_URL:localhost}
     port: ${RABBITMQ_SERVER_PORT:5672}

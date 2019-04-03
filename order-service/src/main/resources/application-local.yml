@@ -8,7 +8,7 @@ spring:
 
 coe:
   application:
-    customer-service: CUSTOMER-SERVICE
+    customer-service: customer-service
 
 feign:
   hystrix:
